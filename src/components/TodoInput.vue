@@ -36,24 +36,16 @@ export default {
   },
   methods: {
     addTodo() {
-      //console.log("새로입력한 값은?", this.newTodoItem);
-      //localStorage.setItem(this.newTodoItem, this.newTodoItem);
-      //setItem(키,밸류)-로컬스토리지에 데이타를 추가하는 API
 
-      //공백도 입력되는 상황을 막아주기 위해
       if (this.newTodoItem !== "") {
         let value = this.newTodoItem && this.newTodoItem.trim();
-        //localStorage.setItem(value, value); 직접 저장하지 않게
-        //this.newTodoItem = ""; //분리, 단일책임원칙
-        this.$emit("addTodo", value); //상위 App.vuedp addTodo, value전달
+        this.$emit("addTodo", value);
         this.clearInput();
       } else {
-        //텍스트 미 입력시 모달팝업
         this.showModal = true;
       }
     },
     clearInput() {
-      //인풋박스 입력후 초기화
       this.newTodoItem = "";
     },
   },
